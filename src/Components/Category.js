@@ -1,4 +1,44 @@
+import { useState } from "react";
+import Categories from "./Categories";
 let Category = () => {
+
+    let [data, setData] = useState(Categories);
+
+    let onlyChildren = (child) =>{
+        let filteronlyChildren = data.filter((value)=>{
+            if(value.category===child){
+                return value;
+            }
+
+        })
+        
+        setData(filteronlyChildren); 
+
+
+    }
+
+    let onlyBlack = (child) =>{
+        let filteronlyBlack = data.filter((value)=>{
+            if(value.category===child){
+                return value;
+            }
+
+        })
+        
+        setData(filteronlyBlack); 
+
+
+    }
+
+       
+
+   
+
+  
+
+    
+   
+    
     return (
         <div>
             <h1 className="text-center text-info">Let's Shop</h1>
@@ -7,46 +47,42 @@ let Category = () => {
                     <div className="col-3 col-lg-3 col-xs-4 col-sm-4">
                         <button type="button" class="btn btn-warning w-100 mb-4 ">Men</button>
                         <button type="button" class="btn btn-warning w-100 mb-4">Women</button>
-                        <button type="button" class="btn btn-warning w-100 mb-4">Children</button>
-                        <button type="button" class="btn btn-warning w-100 mb-4">Black</button>
+                        <button type="button" class="btn btn-warning w-100 mb-4" onClick={()=>onlyChildren('children')}>Children</button>
+                        <button type="button" class="btn btn-warning w-100 mb-4" onClick={()=>onlyBlack('Black')}>Black</button>
                         <button type="button" class="btn btn-warning w-100 mb-4">White</button>
                         <button type="button" class="btn btn-warning w-100 mb-4">All</button>
 
                     </div>
                     <div className="col-9 col-lg-9">
                         <div className="row">
-                            <div className="col-lg-4 col-sm-12">
+                            {data.map((value) => {
+                                let {title,id,price,image}=value
 
-                            <div class="card">
-  <img src="..." class="card-img-top" alt="..." />
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
+                                return (
+                                    <div className="col-lg-4 col-sm-12 mb-4"  key={id}>
 
-                                
-
-
-                            </div>
-                            <div className="col-lg-4 col-sm-12">
-
-                            <div class="card" >
-  <img src="..." class="card-img-top" alt="..." />
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
+                                        <div class="card">
+                                            <img src={image} class="card-img-top" alt="..." />
+                                            <div class="card-body">
+                                                <h5 class="card-title">{title}</h5>
+                                                <p>Price : {price}/-</p>
+                                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                <button class="btn btn-dark">Buy now</button>
+                                            </div>
+                                        </div>
 
 
 
 
+                                    </div>
 
-                            </div>
-                            <div className="col-4"></div>
+
+                                )
+
+                            })}
+                            
+
+
                         </div>
                     </div>
                 </div>
