@@ -45,36 +45,42 @@ let Categories = [
         id:7,
         title:"Mens White Dress",
         price:1500,
+        category:"White",
         image:"images/whiteshirt1.jpg"
     },
     {
         id:8,
         title:"Women White Dress",
         price:40000,
+        category:"White",
         image:"images/whiteshirt4.jpg"
     },
     {
         id:9,
         title:"Mens White Dress",
         price:2000,
+        category:"White",
         image:"images/whiteshirt2.jpg"
     },
     {
         id:10,
         title:"Women White Dress",
         price:3000,
+        category:"White",
         image:"images/whiteshirt5.jpg"
     },
     {
         id:11,
         title:"Mens White Dress",
         price:5000,
+        category:"White",
         image:"images/whiteshirt3.jpg"
     },
     {
         id:12,
         title:"Women White Dress",
         price:7000,
+        category:"White",
         image:"images/whiteshirt6.jpg"
     },
     {
@@ -123,6 +129,7 @@ let Categories = [
         id:19,
         title:"Men Dress",
         price:4000,
+        category:"Men",
         
         image:"images/men1.jpg"
     },
@@ -130,6 +137,7 @@ let Categories = [
         id:20,
         title:"Men Dress",
         price:7000,
+        category:"Men",
         
         image:"images/men12.jpg"
     },
@@ -137,6 +145,7 @@ let Categories = [
         id:21,
         title:"Men Dress",
         price:8000,
+        category:"Men",
         
         image:"images/men3.jpg"
     },
@@ -144,6 +153,7 @@ let Categories = [
         id:22,
         title:"Women Dress",
         price:20000,
+        category:"Women",
         
         image:"images/women1.jpg"
     },
@@ -151,6 +161,7 @@ let Categories = [
         id:23,
         title:"Women Dress",
         price:22000,
+        category:"Women",
         
         image:"images/women2.jpg"
     },
@@ -158,6 +169,7 @@ let Categories = [
         id:24,
         title:"Women Dress",
         price:18000,
+        category:"Women",
         
         image:"images/women3.jpg"
     },

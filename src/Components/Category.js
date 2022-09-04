@@ -3,6 +3,7 @@ import Categories from "./Categories";
 let Category = () => {
 
     let [data, setData] = useState(Categories);
+    let [filteredData, setFilteredData] = useState(Categories);
 
     let onlyChildren = (child) =>{
         let filteronlyChildren = data.filter((value)=>{
@@ -12,23 +13,24 @@ let Category = () => {
 
         })
         
-        setData(filteronlyChildren); 
+        setFilteredData(filteronlyChildren); 
 
 
     }
-
-    let onlyBlack = (child) =>{
-        let filteronlyBlack = data.filter((value)=>{
-            if(value.category===child){
+    let onlyAll = (child) =>{
+        let filteronlyChildren = data.filter((value)=>{
+            if(value.category!==child){
                 return value;
             }
 
         })
         
-        setData(filteronlyBlack); 
+        setFilteredData(filteronlyChildren); 
 
 
     }
+
+   
 
        
 
@@ -45,17 +47,17 @@ let Category = () => {
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-3 col-lg-3 col-xs-4 col-sm-4">
-                        <button type="button" class="btn btn-warning w-100 mb-4 ">Men</button>
-                        <button type="button" class="btn btn-warning w-100 mb-4">Women</button>
+                        <button type="button" class="btn btn-warning w-100 mb-4 " onClick={()=>onlyChildren('Men')}>Men</button>
+                        <button type="button" class="btn btn-warning w-100 mb-4" onClick={()=>onlyChildren('Women')}>Women</button>
                         <button type="button" class="btn btn-warning w-100 mb-4" onClick={()=>onlyChildren('children')}>Children</button>
-                        <button type="button" class="btn btn-warning w-100 mb-4" onClick={()=>onlyBlack('Black')}>Black</button>
-                        <button type="button" class="btn btn-warning w-100 mb-4">White</button>
-                        <button type="button" class="btn btn-warning w-100 mb-4">All</button>
+                        <button type="button" class="btn btn-warning w-100 mb-4" onClick={()=>onlyChildren('Black')}>Black</button>
+                        <button type="button" class="btn btn-warning w-100 mb-4" onClick={()=>onlyChildren('White')}>White</button>
+                        <button type="button" class="btn btn-warning w-100 mb-4" onClick={()=>onlyAll('All')}>All</button>
 
                     </div>
                     <div className="col-9 col-lg-9">
                         <div className="row">
-                            {data.map((value) => {
+                            {filteredData.map((value) => {
                                 let {title,id,price,image}=value
 
                                 return (
